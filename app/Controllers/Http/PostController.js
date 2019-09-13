@@ -20,6 +20,10 @@ class PostController {
       post: post
     })
   }
+
+  async add({view}){
+    return view.render('posts.add')
+  }
 }
 
 module.exports = PostController
