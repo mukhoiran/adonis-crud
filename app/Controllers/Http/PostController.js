@@ -82,6 +82,15 @@ class PostController {
     session.flash({ notification: 'Post Updated!'})
     return response.redirect('/posts')
   }
+
+  async destroy({ params, session, response }){
+    const post = await Post.find(params.id)
+
+    await post.delete()
+
+    session.flash({ notification: 'Post Deleted!'})
+    return response.redirect('/posts')
+  }
 }
 
 module.exports = PostController
